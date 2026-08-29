@@ -1,4 +1,6 @@
-Absolutely bro. Replace your **entire `README.md`** with this clean version:
+Yep bro 😭 I see it. You want **ONLY the clean README content**, with **zero ChatGPT instructions/comments** like “Absolutely bro,” “replace this,” etc.
+
+Use this as your **entire `README.md`**:
 
 ````markdown
 # Week 04 – Student Registration System
@@ -300,18 +302,19 @@ week04-student-registration/
 
 ## 14. System Features
 
-- Student registration
-- Server-side validation
-- Unique Student ID validation
-- Unique email validation
-- Email format validation
-- Mobile number validation
-- Profile picture upload
-- JPG/JPEG/PNG image validation
-- 2MB maximum image size
-- MySQL database integration
-- Student profile display
-- Success flash messages
-- Validation error messages
-- Responsive user interface
-- Laravel Storage integration
+* Student registration
+* Server-side validation
+* Unique Student ID validation
+* Unique email validation
+* Email format validation
+* Mobile number validation
+* Profile picture upload
+* JPG/JPEG/PNG image validation
+* 2MB maximum image size
+* MySQL database integration
+* Student profile display
+* Success flash messages
+* Validation error messages
+* Responsive user interface
+* Laravel Storage integration
+
