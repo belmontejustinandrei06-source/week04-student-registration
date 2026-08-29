@@ -615,7 +615,7 @@
                     <div class="detail">
                         <strong>Date of Birth</strong>
                         <div class="value">
-                            {{ $student->date_of_birth }}
+                            {{ \Carbon\Carbon::parse($student->date_of_birth)->format('F d, Y') }}
                         </div>
                     </div>
 
