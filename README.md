@@ -1,28 +1,4 @@
-LMAO yeah bro 😭 — **that's not the full README**. Your paste cuts off during the Laravel Request Lifecycle section at:
-
-```text
-            Browser
-```
-
-So **don't add the Features section based on what I said yet**. We need to get your README complete and clean first.
-
-Also, I noticed your pasted Markdown has escaped formatting like:
-
-```text
-**# Week 04 – Student Registration System**
-```
-
-and
-
-```text
-**## 1. Project Title**
-```
-
-That will make the README look wrong on GitHub because the `**` are being used around the headings.
-
-### Let's fix the README properly
-
-Since your README is currently incomplete, **replace the entire `README.md`** with the clean version I gave you earlier, but we'll make the structure correct:
+Absolutely bro. Replace your **entire `README.md`** with this clean version:
 
 ````markdown
 # Week 04 – Student Registration System
@@ -47,7 +23,11 @@ The application allows users to enter a student's personal and academic informat
 
 Laravel server-side validation is used to prevent incomplete, invalid, or duplicate information from being stored in the database.
 
+This project demonstrates Laravel forms, request handling, server-side validation, flash messages, file uploads, Laravel Storage, database migrations, controllers, Blade templates, and MySQL integration.
+
 ## 3. Objectives
+
+After completing this activity, the following objectives were accomplished:
 
 - Create a student registration form using Laravel Blade.
 - Implement server-side validation.
@@ -61,6 +41,7 @@ Laravel server-side validation is used to prevent incomplete, invalid, or duplic
 - Display registered student information.
 - Use Laravel controllers to process requests.
 - Use Git and GitHub for version control.
+- Document the software development process using Markdown.
 
 ## 4. Laravel Request Lifecycle
 
@@ -146,7 +127,29 @@ The application uses a MySQL `students` table.
 
 ## 8. Laravel Request Lifecycle Diagram
 
-![Laravel Request Lifecycle](docs/Laravel_Request_Lifecycle_Diagram.png)
+The Laravel request lifecycle begins when the browser submits the registration form. The request is processed through the route and controller, validated, stored in the database, and returned as a student profile.
+
+```text
+Browser
+   ↓
+Registration Form
+   ↓
+Route
+   ↓
+StudentController
+   ↓
+Validation
+   ↓
+Student Model
+   ↓
+MySQL Database
+   ↓
+Profile Picture Storage
+   ↓
+Success Response
+   ↓
+Student Profile
+```
 
 ## 9. Screenshots
 
@@ -194,7 +197,7 @@ The issue was resolved by creating Laravel's public storage link:
 php artisan storage:link
 ```
 
-The uploaded file was also verified using Laravel Tinker.
+The uploaded file was also verified using Laravel Tinker:
 
 ```php
 Storage::disk('public')->exists($student->profile_picture);
@@ -218,7 +221,13 @@ php artisan serve
 
 initially failed because the terminal was in the wrong directory.
 
-After moving into the directory containing the `artisan` file, the Laravel development server started successfully.
+After moving into the project directory containing the `artisan` file, the Laravel development server started successfully.
+
+### Profile Image Path Issue
+
+The profile picture was stored in the database, but the image could not initially be accessed from the browser. The database path and storage location were checked using Laravel Tinker.
+
+The stored path was verified and the file was confirmed to exist on the `public` storage disk. The Laravel storage link was then configured so that files stored in `storage/app/public` could be accessed through the application's public directory.
 
 ## 11. Reflection
 
@@ -226,41 +235,61 @@ This Week 04 activity helped me understand how Laravel handles forms, validation
 
 One of the most important things I learned was the importance of server-side validation. A registration form should not simply accept any information entered by a user. Laravel validation allows the application to check whether required fields are completed, whether email addresses are valid, and whether unique fields such as Student ID and email already exist.
 
-I also learned how Laravel handles file uploads. The profile picture feature required the image to be validated, stored using Laravel Storage, and connected to the student's database record through the stored file path. I encountered a problem where the image existed but was not displaying because the public storage link was not available. Troubleshooting this issue helped me understand how Laravel connects the storage directory to the public directory.
+I also learned how Laravel handles user input. Information submitted through the registration form is received by the controller, validated according to the defined rules, and then processed before being stored in the database. This helps ensure that the application does not store incomplete or invalid information.
+
+Another important lesson was file security. The profile picture feature required the uploaded image to be validated before it was stored. Restricting the accepted file types and maximum file size helps reduce the risk of unwanted or unsafe files being uploaded to the system.
+
+I also learned how Laravel handles file uploads using Laravel Storage. The profile picture is stored separately from the database while the file path is saved with the student's record. I encountered a problem where the image existed but was not displaying because the public storage link was not available. Troubleshooting this issue helped me understand how Laravel connects the storage directory to the public directory.
 
 Another important lesson was understanding the Laravel request lifecycle. The browser sends a request to a route, the route directs the request to the controller, the controller validates the information, and the model communicates with the database. Understanding this process makes it easier to organize Laravel applications and troubleshoot problems.
 
 The project also improved my understanding of database design. The `students` table stores the student's personal and academic information, while unique constraints help prevent duplicate records.
 
-Overall, the activity improved my practical knowledge of Laravel, MySQL, Blade templates, validation, file storage, and Git. These concepts can be applied to larger applications such as school management systems, employee systems, e-commerce applications, and other enterprise systems.
+Overall, the activity improved my practical knowledge of Laravel, MySQL, Blade templates, validation, file storage, and Git. These concepts can be applied to larger enterprise applications such as school management systems, employee systems, e-commerce applications, and other registration systems where accurate and secure user information is important.
 
 ## 12. References
 
-Laravel. (n.d.). *Laravel documentation*. [https://laravel.com/docs](https://laravel.com/docs)
-
-PHP Documentation Group. (n.d.). *PHP manual*. [https://www.php.net/docs.php](https://www.php.net/docs.php)
-
-MySQL. (n.d.). *MySQL documentation*. [https://dev.mysql.com/doc/](https://dev.mysql.com/doc/)
-
-MDN Web Docs. (n.d.). *MDN Web Docs*. [https://developer.mozilla.org/](https://developer.mozilla.org/)
+* [Laravel Documentation](https://laravel.com/docs)
+* [PHP Manual](https://www.php.net/docs.php)
+* [MySQL Documentation](https://dev.mysql.com/doc/)
+* [MDN Web Docs](https://developer.mozilla.org/)
 
 ## 13. Project Structure
 
 ```text
 week04-student-registration/
-│
+
 ├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       └── StudentController.php
+│   └── Models/
+│       └── Student.php
+│
 ├── bootstrap/
 ├── config/
+│
 ├── database/
+│   └── migrations/
+│       └── 2026_08_28_100124_create_students_table.php
+│
 ├── docs/
-│   ├── Student_Registration_Flowchart.png
 │   ├── Student_Registration_ERD.png
-│   └── Laravel_Request_Lifecycle_Diagram.png
+│   └── Student_Registration_Flowchart.png
+│
 ├── public/
 ├── resources/
+│   └── views/
+│       └── students/
+│           ├── create.blade.php
+│           ├── index.blade.php
+│           └── show.blade.php
+│
 ├── routes/
+│   └── web.php
+│
 ├── screenshots/
+│
 ├── storage/
 ├── tests/
 ├── artisan
@@ -287,4 +316,22 @@ week04-student-registration/
 * Responsive user interface
 * Laravel Storage integration
 
+````
 
+Save the file.
+
+Then run:
+
+```powershell
+git status
+````
+
+Then:
+
+```powershell
+git add README.md
+git commit -m "Polish README formatting and documentation"
+git push
+```
+
+This will be **commit #6** and the README will be clean on GitHub.
