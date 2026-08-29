@@ -1,8 +1,3 @@
-Yep bro 😭 I see it. You want **ONLY the clean README content**, with **zero ChatGPT instructions/comments** like “Absolutely bro,” “replace this,” etc.
-
-Use this as your **entire `README.md`**:
-
-````markdown
 # Week 04 – Student Registration System
 
 A Laravel-based Student Registration System developed for the Week 04 Laboratory Activity in ITST 302 – Client-Server Technologies.
@@ -78,46 +73,46 @@ Is the data valid?
    Student Profile
         ↓
    Browser
-````
+```
 
 ## 5. Validation Rules
 
-| Field           | Validation                                 |
-| --------------- | ------------------------------------------ |
-| Student ID      | Required and unique                        |
-| First Name      | Required                                   |
-| Middle Name     | Optional                                   |
-| Last Name       | Required                                   |
-| Email           | Required, valid email, unique              |
-| Mobile Number   | Required and numeric                       |
-| Date of Birth   | Required                                   |
-| Gender          | Required                                   |
-| Program         | Required                                   |
-| Year Level      | Required                                   |
-| Address         | Required                                   |
-| Profile Picture | Required, image, JPG/JPEG/PNG, maximum 2MB |
+| Field | Validation |
+|---|---|
+| Student ID | Required and unique |
+| First Name | Required |
+| Middle Name | Optional |
+| Last Name | Required |
+| Email | Required, valid email, unique |
+| Mobile Number | Required and numeric |
+| Date of Birth | Required |
+| Gender | Required |
+| Program | Required |
+| Year Level | Required |
+| Address | Required |
+| Profile Picture | Required, JPG/JPEG/PNG, maximum 2MB |
 
 ## 6. Database Design
 
 The application uses a MySQL `students` table.
 
-| Column          | Type      | Constraint  |
-| --------------- | --------- | ----------- |
-| id              | BIGINT    | Primary Key |
-| student_id      | VARCHAR   | Unique      |
-| first_name      | VARCHAR   | Required    |
-| middle_name     | VARCHAR   | Nullable    |
-| last_name       | VARCHAR   | Required    |
-| email           | VARCHAR   | Unique      |
-| mobile_number   | VARCHAR   | Required    |
-| date_of_birth   | DATE      | Required    |
-| gender          | VARCHAR   | Required    |
-| program         | VARCHAR   | Required    |
-| year_level      | VARCHAR   | Required    |
-| address         | TEXT      | Required    |
-| profile_picture | VARCHAR   | Required    |
-| created_at      | TIMESTAMP | Laravel     |
-| updated_at      | TIMESTAMP | Laravel     |
+| Column | Type | Constraint |
+|---|---|---|
+| id | BIGINT | Primary Key |
+| student_id | VARCHAR | Unique |
+| first_name | VARCHAR | Required |
+| middle_name | VARCHAR | Nullable |
+| last_name | VARCHAR | Required |
+| email | VARCHAR | Unique |
+| mobile_number | VARCHAR | Required |
+| date_of_birth | DATE | Required |
+| gender | VARCHAR | Required |
+| program | VARCHAR | Required |
+| year_level | VARCHAR | Required |
+| address | TEXT | Required |
+| profile_picture | VARCHAR | Required |
+| created_at | TIMESTAMP | Laravel |
+| updated_at | TIMESTAMP | Laravel |
 
 ### ERD
 
@@ -227,9 +222,11 @@ After moving into the project directory containing the `artisan` file, the Larav
 
 ### Profile Image Path Issue
 
-The profile picture was stored in the database, but the image could not initially be accessed from the browser. The database path and storage location were checked using Laravel Tinker.
+The profile picture was stored in the database, but the image could not initially be accessed from the browser.
 
-The stored path was verified and the file was confirmed to exist on the `public` storage disk. The Laravel storage link was then configured so that files stored in `storage/app/public` could be accessed through the application's public directory.
+The database path and storage location were checked using Laravel Tinker. The stored path was verified and the file was confirmed to exist on the `public` storage disk.
+
+The Laravel storage link was then configured so that files stored in `storage/app/public` could be accessed through the application's public directory.
 
 ## 11. Reflection
 
@@ -237,24 +234,24 @@ This Week 04 activity helped me understand how Laravel handles forms, validation
 
 One of the most important things I learned was the importance of server-side validation. A registration form should not simply accept any information entered by a user. Laravel validation allows the application to check whether required fields are completed, whether email addresses are valid, and whether unique fields such as Student ID and email already exist.
 
-I also learned how Laravel handles user input. Information submitted through the registration form is received by the controller, validated according to the defined rules, and then processed before being stored in the database. This helps ensure that the application does not store incomplete or invalid information.
+I also learned how Laravel handles user input. Information submitted through the registration form is received by the controller, validated according to the defined rules, and then processed before being stored in the database.
 
 Another important lesson was file security. The profile picture feature required the uploaded image to be validated before it was stored. Restricting the accepted file types and maximum file size helps reduce the risk of unwanted or unsafe files being uploaded to the system.
 
-I also learned how Laravel handles file uploads using Laravel Storage. The profile picture is stored separately from the database while the file path is saved with the student's record. I encountered a problem where the image existed but was not displaying because the public storage link was not available. Troubleshooting this issue helped me understand how Laravel connects the storage directory to the public directory.
+I also learned how Laravel handles file uploads using Laravel Storage. The profile picture is stored separately from the database while the file path is saved with the student's record.
 
-Another important lesson was understanding the Laravel request lifecycle. The browser sends a request to a route, the route directs the request to the controller, the controller validates the information, and the model communicates with the database. Understanding this process makes it easier to organize Laravel applications and troubleshoot problems.
+Another important lesson was understanding the Laravel request lifecycle. The browser sends a request to a route, the route directs the request to the controller, the controller validates the information, and the model communicates with the database.
 
 The project also improved my understanding of database design. The `students` table stores the student's personal and academic information, while unique constraints help prevent duplicate records.
 
-Overall, the activity improved my practical knowledge of Laravel, MySQL, Blade templates, validation, file storage, and Git. These concepts can be applied to larger enterprise applications such as school management systems, employee systems, e-commerce applications, and other registration systems where accurate and secure user information is important.
+Overall, the activity improved my practical knowledge of Laravel, MySQL, Blade templates, validation, file storage, and Git.
 
 ## 12. References
 
-* [Laravel Documentation](https://laravel.com/docs)
-* [PHP Manual](https://www.php.net/docs.php)
-* [MySQL Documentation](https://dev.mysql.com/doc/)
-* [MDN Web Docs](https://developer.mozilla.org/)
+- [Laravel Documentation](https://laravel.com/docs)
+- [PHP Manual](https://www.php.net/docs.php)
+- [MySQL Documentation](https://dev.mysql.com/doc/)
+- [MDN Web Docs](https://developer.mozilla.org/)
 
 ## 13. Project Structure
 
@@ -302,19 +299,18 @@ week04-student-registration/
 
 ## 14. System Features
 
-* Student registration
-* Server-side validation
-* Unique Student ID validation
-* Unique email validation
-* Email format validation
-* Mobile number validation
-* Profile picture upload
-* JPG/JPEG/PNG image validation
-* 2MB maximum image size
-* MySQL database integration
-* Student profile display
-* Success flash messages
-* Validation error messages
-* Responsive user interface
-* Laravel Storage integration
-
+- Student registration
+- Server-side validation
+- Unique Student ID validation
+- Unique email validation
+- Email format validation
+- Mobile number validation
+- Profile picture upload
+- JPG/JPEG/PNG image validation
+- 2MB maximum image size
+- MySQL database integration
+- Student profile display
+- Success flash messages
+- Validation error messages
+- Responsive user interface
+- Laravel Storage integration
