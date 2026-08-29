@@ -36,16 +36,17 @@ class StudentController extends Controller
             'profile_picture' => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-    $path = $request->file('profile_picture')->store('profile-pictures', 'public');
+        $path = $request->file('profile_picture')
+            ->store('profile-pictures', 'public');
 
-    $validated['profile_picture'] = $path;
+        $validated['profile_picture'] = $path;
 
-    $student = Student::create($validated);
+        $student = Student::create($validated);
 
-    return redirect()
-        ->route('students.show', $student)
-        ->with('success', 'Student registered successfully!');
-}
+        return redirect()
+            ->route('students.show', $student)
+            ->with('success', 'Student registered successfully!');
+    }
 
     public function show(Student $student)
     {
