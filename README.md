@@ -152,23 +152,23 @@ The application uses a MySQL `students` table.
 
 ### Registration Form
 
-![Registration Form](screenshots/01-registration-form.png)
+![Registration Form](screenshots/registration-form.png)
 
 ### Validation Errors
 
-![Validation Errors](screenshots/02-validation-errors.png)
+![Validation Errors](screenshots/validation-errors.png)
 
 ### Successful Registration
 
-![Successful Registration](screenshots/03-successful-registration.png)
+![Successful Registration](screenshots/successful-registration.png)
 
 ### Database Records
 
-![Database Records](screenshots/04-database-records.png)
+![Database Records](screenshots/database-records.png)
 
 ### Project Structure
 
-![Project Structure](screenshots/05-project-structure.png)
+![Project Structure](screenshots/project-structure.png)
 
 ### GitHub Repository
 
