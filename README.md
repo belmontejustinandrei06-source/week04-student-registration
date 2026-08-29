@@ -300,38 +300,18 @@ week04-student-registration/
 
 ## 14. System Features
 
-* Student registration
-* Server-side validation
-* Unique Student ID validation
-* Unique email validation
-* Email format validation
-* Mobile number validation
-* Profile picture upload
-* JPG/JPEG/PNG image validation
-* 2MB maximum image size
-* MySQL database integration
-* Student profile display
-* Success flash messages
-* Validation error messages
-* Responsive user interface
-* Laravel Storage integration
-
-````
-
-Save the file.
-
-Then run:
-
-```powershell
-git status
-````
-
-Then:
-
-```powershell
-git add README.md
-git commit -m "Polish README formatting and documentation"
-git push
-```
-
-This will be **commit #6** and the README will be clean on GitHub.
+- Student registration
+- Server-side validation
+- Unique Student ID validation
+- Unique email validation
+- Email format validation
+- Mobile number validation
+- Profile picture upload
+- JPG/JPEG/PNG image validation
+- 2MB maximum image size
+- MySQL database integration
+- Student profile display
+- Success flash messages
+- Validation error messages
+- Responsive user interface
+- Laravel Storage integration
